@@ -1,0 +1,21 @@
+apiVersion: asset.sap/v1
+kind: Asset
+type: mcp-server
+
+metadata:
+  name: sap-s4-api-cabuspartpayment-0002-mcp-server
+  description: MCP server exposing SAP S/4HANA Contract Accounting Business Partner Payment OData API as read-only MCP tools for contractual payment information retrieval.
+  version: "1.0.0"
+  translation: mcp-translation/translation.json
+  apiSpec: mcp-translation/api-spec.edmx
+
+requires:
+  - name: API_CABUSPARTPAYMENT_0002
+    kind: api
+    ordId: sap.s4:apiResource:API_CABUSPARTPAYMENT_0002:v2
+
+provides:
+  apis:
+    - name: sap-s4-api-cabuspartpayment-0002-mcp-server
+      kind: mcp-server
+      ordId: customer.build:apiResource:customer-billing-review-agent-bf3a8.sap-s4-api-cabuspartpayment-0002-mcp-server:v1

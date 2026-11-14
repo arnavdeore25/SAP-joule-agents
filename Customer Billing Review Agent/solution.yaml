@@ -1,0 +1,12 @@
+apiVersion: solution.sap/v1
+kind: Solution
+
+metadata:
+  name: customer-billing-review-agent-bf3a8
+  version: "1.0.0"
+  description: Customer Billing Review Agent for Barton Industrial Supply — a conversational AI agent that helps billing specialists review customer billing and contractual payment information against contract terms.
+
+assets:
+  - ref: ./assets/customer-billing-review-agent/asset.yaml
+  - ref: ./assets/sap-s4-ce-billingdocument-0001-mcp-server/asset.yaml
+  - ref: ./assets/sap-s4-api-cabuspartpayment-0002-mcp-server/asset.yaml

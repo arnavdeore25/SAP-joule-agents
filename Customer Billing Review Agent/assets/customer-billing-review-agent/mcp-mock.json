@@ -1,0 +1,766 @@
+{
+  "servers": {
+    "sap-s4-ce-billingdocument-0001": {
+      "mcp_server_name": "sap.mcp/sap_self",
+      "description": "MCP server exposing SAP S/4HANA Billing Document OData API as read-only MCP tools for customer billing information retrieval.",
+      "tools": {
+        "get_metadata_sap_self": {
+          "description": "Get metadata of the OData service with optional filtering to reduce token consumption.",
+          "input_schema": {
+            "type": "object",
+            "properties": {
+              "entitySet": {
+                "type": "string",
+                "description": "Filter metadata to a specific entity set"
+              }
+            },
+            "required": []
+          },
+          "mock_response": {
+            "metadata": "<edmx:Edmx Version='4.0'><edmx:DataServices><Schema Namespace='sap_self'><EntityType Name='BillingDocument'><Key><PropertyRef Name='BillingDocument'/></Key><Property Name='BillingDocument' Type='Edm.String'/><Property Name='BillingDocumentDate' Type='Edm.Date'/><Property Name='BillingDocumentType' Type='Edm.String'/><Property Name='SoldToParty' Type='Edm.String'/><Property Name='TotalNetAmount' Type='Edm.Decimal'/><Property Name='TransactionCurrency' Type='Edm.String'/><Property Name='OverallBillingStatus' Type='Edm.String'/></EntityType></Schema></edmx:DataServices></edmx:Edmx>"
+          }
+        },
+        "batch_for_sap_self": {
+          "description": "Execute multiple OData operations in a single batch request.",
+          "input_schema": {
+            "type": "object",
+            "properties": {
+              "requests": {
+                "type": "array",
+                "description": "Array of batch requests"
+              }
+            },
+            "required": ["requests"]
+          },
+          "mock_response": {
+            "responses": []
+          }
+        },
+        "list_billingdocument_for_sap_self": {
+          "description": "Retrieve a list of entities from the BillingDocument collection.",
+          "input_schema": {
+            "type": "object",
+            "properties": {
+              "$filter": {
+                "type": "string",
+                "description": "OData filter expression (e.g., SoldToParty eq 'C1000')"
+              },
+              "$select": {
+                "type": "string",
+                "description": "Comma-separated list of fields to return"
+              },
+              "$orderby": {
+                "type": "string",
+                "description": "Sort order (e.g., BillingDocumentDate desc)"
+              },
+              "$top": {
+                "type": "string",
+                "description": "Maximum number of records to return"
+              },
+              "$skip": {
+                "type": "string",
+                "description": "Number of records to skip"
+              },
+              "$expand": {
+                "type": "string",
+                "description": "Comma-separated list of related entities to expand"
+              }
+            },
+            "required": []
+          },
+          "mock_response": {
+            "value": [
+              {
+                "BillingDocument": "90000001",
+                "BillingDocumentDate": "2024-09-15",
+                "BillingDocumentType": "F2",
+                "SoldToParty": "C1000",
+                "TotalNetAmount": "15000.00",
+                "TransactionCurrency": "USD",
+                "OverallBillingStatus": "C",
+                "PaymentTerms": "NT30",
+                "DueDate": "2024-10-15",
+                "BillingDocumentIsCancelled": false
+              },
+              {
+                "BillingDocument": "90000002",
+                "BillingDocumentDate": "2024-10-01",
+                "BillingDocumentType": "F2",
+                "SoldToParty": "C1000",
+                "TotalNetAmount": "22500.00",
+                "TransactionCurrency": "USD",
+                "OverallBillingStatus": "B",
+                "PaymentTerms": "NT30",
+                "DueDate": "2024-11-01",
+                "BillingDocumentIsCancelled": false
+              }
+            ]
+          }
+        },
+        "get_billingdocument_for_sap_self": {
+          "description": "Retrieve a single BillingDocument entity by its key.",
+          "input_schema": {
+            "type": "object",
+            "properties": {
+              "BillingDocument": {
+                "type": "string",
+                "description": "Billing document number (key)"
+              },
+              "$select": {
+                "type": "string",
+                "description": "Fields to return"
+              },
+              "$expand": {
+                "type": "string",
+                "description": "Related entities to expand"
+              }
+            },
+            "required": ["BillingDocument"]
+          },
+          "mock_response": {
+            "BillingDocument": "90000001",
+            "BillingDocumentDate": "2024-09-15",
+            "BillingDocumentType": "F2",
+            "SoldToParty": "C1000",
+            "TotalNetAmount": "15000.00",
+            "TransactionCurrency": "USD",
+            "OverallBillingStatus": "C",
+            "PaymentTerms": "NT30",
+            "DueDate": "2024-10-15",
+            "BillingDocumentIsCancelled": false
+          }
+        },
+        "count_billingdocument_for_sap_self": {
+          "description": "Get the total count of BillingDocument entities.",
+          "input_schema": {
+            "type": "object",
+            "properties": {
+              "$filter": {
+                "type": "string",
+                "description": "OData filter to count matching entities"
+              }
+            },
+            "required": []
+          },
+          "mock_response": {
+            "value": 2
+          }
+        },
+        "list_billingdocumentitem_for_sap_self": {
+          "description": "Retrieve a list of entities from the BillingDocumentItem collection.",
+          "input_schema": {
+            "type": "object",
+            "properties": {
+              "$filter": {
+                "type": "string",
+                "description": "OData filter expression"
+              },
+              "$select": {
+                "type": "string",
+                "description": "Fields to return"
+              },
+              "$top": {
+                "type": "string",
+                "description": "Maximum number of records"
+              },
+              "$skip": {
+                "type": "string",
+                "description": "Records to skip"
+              }
+            },
+            "required": []
+          },
+          "mock_response": {
+            "value": [
+              {
+                "BillingDocument": "90000001",
+                "BillingDocumentItem": "10",
+                "Material": "MAT-001",
+                "BillingQuantity": "5.000",
+                "BillingQuantityUnit": "EA",
+                "NetAmount": "5000.00",
+                "TransactionCurrency": "USD"
+              },
+              {
+                "BillingDocument": "90000001",
+                "BillingDocumentItem": "20",
+                "Material": "MAT-002",
+                "BillingQuantity": "10.000",
+                "BillingQuantityUnit": "EA",
+                "NetAmount": "10000.00",
+                "TransactionCurrency": "USD"
+              }
+            ]
+          }
+        },
+        "get_billingdocumentitem_for_sap_self": {
+          "description": "Retrieve a single BillingDocumentItem entity by its key.",
+          "input_schema": {
+            "type": "object",
+            "properties": {
+              "BillingDocument": {
+                "type": "string",
+                "description": "Billing document number"
+              },
+              "BillingDocumentItem": {
+                "type": "string",
+                "description": "Billing document item number"
+              }
+            },
+            "required": ["BillingDocument", "BillingDocumentItem"]
+          },
+          "mock_response": {
+            "BillingDocument": "90000001",
+            "BillingDocumentItem": "10",
+            "Material": "MAT-001",
+            "BillingQuantity": "5.000",
+            "BillingQuantityUnit": "EA",
+            "NetAmount": "5000.00",
+            "TransactionCurrency": "USD"
+          }
+        },
+        "count_billingdocumentitem_for_sap_self": {
+          "description": "Get the total count of BillingDocumentItem entities.",
+          "input_schema": {
+            "type": "object",
+            "properties": {
+              "$filter": {
+                "type": "string",
+                "description": "OData filter"
+              }
+            },
+            "required": []
+          },
+          "mock_response": {
+            "value": 2
+          }
+        },
+        "list_billingdocument__item_for_sap_self": {
+          "description": "Retrieve items via BillingDocument navigation path.",
+          "input_schema": {
+            "type": "object",
+            "properties": {
+              "BillingDocument": {
+                "type": "string",
+                "description": "Parent billing document key"
+              },
+              "$filter": {
+                "type": "string",
+                "description": "OData filter"
+              },
+              "$top": {
+                "type": "string",
+                "description": "Maximum records"
+              }
+            },
+            "required": ["BillingDocument"]
+          },
+          "mock_response": {
+            "value": [
+              {
+                "BillingDocument": "90000001",
+                "BillingDocumentItem": "10",
+                "Material": "MAT-001",
+                "NetAmount": "5000.00"
+              }
+            ]
+          }
+        },
+        "get_billingdocument__item_for_sap_self": {
+          "description": "Retrieve a single item via BillingDocument navigation.",
+          "input_schema": {
+            "type": "object",
+            "properties": {
+              "BillingDocument": {
+                "type": "string",
+                "description": "Parent billing document key"
+              },
+              "BillingDocumentItem": {
+                "type": "string",
+                "description": "Item key"
+              }
+            },
+            "required": ["BillingDocument", "BillingDocumentItem"]
+          },
+          "mock_response": {
+            "BillingDocument": "90000001",
+            "BillingDocumentItem": "10",
+            "Material": "MAT-001",
+            "NetAmount": "5000.00"
+          }
+        },
+        "count_billingdocument__item_for_sap_self": {
+          "description": "Count items via BillingDocument navigation.",
+          "input_schema": {
+            "type": "object",
+            "properties": {
+              "BillingDocument": {
+                "type": "string",
+                "description": "Parent billing document key"
+              }
+            },
+            "required": ["BillingDocument"]
+          },
+          "mock_response": {
+            "value": 2
+          }
+        },
+        "list_billingdocument__partner_for_sap_self": {
+          "description": "Retrieve partners via BillingDocument navigation.",
+          "input_schema": {
+            "type": "object",
+            "properties": {
+              "BillingDocument": {
+                "type": "string",
+                "description": "Parent billing document key"
+              }
+            },
+            "required": ["BillingDocument"]
+          },
+          "mock_response": {
+            "value": [
+              {
+                "BillingDocument": "90000001",
+                "PartnerFunction": "AG",
+                "Customer": "C1000"
+              }
+            ]
+          }
+        },
+        "get_billingdocument__partner_for_sap_self": {
+          "description": "Retrieve a single partner via BillingDocument navigation.",
+          "input_schema": {
+            "type": "object",
+            "properties": {
+              "BillingDocument": {
+                "type": "string",
+                "description": "Parent billing document key"
+              },
+              "PartnerFunction": {
+                "type": "string",
+                "description": "Partner function key"
+              }
+            },
+            "required": ["BillingDocument", "PartnerFunction"]
+          },
+          "mock_response": {
+            "BillingDocument": "90000001",
+            "PartnerFunction": "AG",
+            "Customer": "C1000"
+          }
+        },
+        "list_billingdocument__text_for_sap_self": {
+          "description": "Retrieve texts via BillingDocument navigation.",
+          "input_schema": {
+            "type": "object",
+            "properties": {
+              "BillingDocument": {
+                "type": "string",
+                "description": "Parent billing document key"
+              }
+            },
+            "required": ["BillingDocument"]
+          },
+          "mock_response": {
+            "value": [
+              {
+                "BillingDocument": "90000001",
+                "Language": "EN",
+                "LongTextID": "0001",
+                "PlainLongText": "Standard billing terms apply."
+              }
+            ]
+          }
+        },
+        "get_billingdocument__text_for_sap_self": {
+          "description": "Retrieve a single text via BillingDocument navigation.",
+          "input_schema": {
+            "type": "object",
+            "properties": {
+              "BillingDocument": {
+                "type": "string",
+                "description": "Parent billing document key"
+              },
+              "Language": {
+                "type": "string",
+                "description": "Language key"
+              },
+              "LongTextID": {
+                "type": "string",
+                "description": "Text ID"
+              }
+            },
+            "required": ["BillingDocument", "Language", "LongTextID"]
+          },
+          "mock_response": {
+            "BillingDocument": "90000001",
+            "Language": "EN",
+            "LongTextID": "0001",
+            "PlainLongText": "Standard billing terms apply."
+          }
+        },
+        "list_billingdocumentitem__itempartner_for_sap_self": {
+          "description": "Retrieve item partners via BillingDocumentItem navigation.",
+          "input_schema": {
+            "type": "object",
+            "properties": {
+              "BillingDocument": {
+                "type": "string",
+                "description": "Parent billing document key"
+              },
+              "BillingDocumentItem": {
+                "type": "string",
+                "description": "Parent item key"
+              }
+            },
+            "required": ["BillingDocument", "BillingDocumentItem"]
+          },
+          "mock_response": {
+            "value": [
+              {
+                "BillingDocument": "90000001",
+                "BillingDocumentItem": "10",
+                "PartnerFunction": "AG",
+                "Customer": "C1000"
+              }
+            ]
+          }
+        },
+        "get_billingdocumentitem__itempartner_for_sap_self": {
+          "description": "Retrieve a single item partner via BillingDocumentItem navigation.",
+          "input_schema": {
+            "type": "object",
+            "properties": {
+              "BillingDocument": {
+                "type": "string",
+                "description": "Parent billing document key"
+              },
+              "BillingDocumentItem": {
+                "type": "string",
+                "description": "Parent item key"
+              },
+              "PartnerFunction": {
+                "type": "string",
+                "description": "Partner function key"
+              }
+            },
+            "required": ["BillingDocument", "BillingDocumentItem", "PartnerFunction"]
+          },
+          "mock_response": {
+            "BillingDocument": "90000001",
+            "BillingDocumentItem": "10",
+            "PartnerFunction": "AG",
+            "Customer": "C1000"
+          }
+        }
+      }
+    },
+    "sap-s4-api-cabuspartpayment-0002": {
+      "mcp_server_name": "sap.mcp/sap_self",
+      "description": "MCP server exposing SAP S/4HANA Contract Accounting Business Partner Payment OData API as read-only MCP tools for contractual payment information retrieval.",
+      "tools": {
+        "get_metadata_sap_self": {
+          "description": "Get metadata of the Contract Accounting Payment OData service.",
+          "input_schema": {
+            "type": "object",
+            "properties": {
+              "entitySet": {
+                "type": "string",
+                "description": "Filter metadata to a specific entity set"
+              }
+            },
+            "required": []
+          },
+          "mock_response": {
+            "metadata": "<edmx:Edmx Version='4.0'><edmx:DataServices><Schema Namespace='sap_self'><EntityType Name='ContrAcctgBusPartnerPayment'><Key><PropertyRef Name='BusinessPartner'/></Key><Property Name='BusinessPartner' Type='Edm.String'/><Property Name='PaymentTerms' Type='Edm.String'/><Property Name='DueCalculationBaseDate' Type='Edm.Date'/></EntityType></Schema></edmx:DataServices></edmx:Edmx>"
+          }
+        },
+        "batch_for_sap_self": {
+          "description": "Execute multiple Contract Accounting OData operations in a single batch request.",
+          "input_schema": {
+            "type": "object",
+            "properties": {
+              "requests": {
+                "type": "array",
+                "description": "Array of batch requests"
+              }
+            },
+            "required": ["requests"]
+          },
+          "mock_response": {
+            "responses": []
+          }
+        },
+        "list_cabppaytenhcdfordspcrcy_for_sap_self": {
+          "description": "Retrieve a list of enhanced contract accounting payment data for display currency.",
+          "input_schema": {
+            "type": "object",
+            "properties": {
+              "$filter": {
+                "type": "string",
+                "description": "OData filter (e.g., BusinessPartner eq 'C1000')"
+              },
+              "$select": {
+                "type": "string",
+                "description": "Fields to return"
+              },
+              "$top": {
+                "type": "string",
+                "description": "Maximum records"
+              },
+              "$skip": {
+                "type": "string",
+                "description": "Records to skip"
+              }
+            },
+            "required": []
+          },
+          "mock_response": {
+            "value": [
+              {
+                "BusinessPartner": "C1000",
+                "ContractAccount": "CA-0001",
+                "PaymentTerms": "NT30",
+                "PaymentMethod": "T",
+                "DueDate": "2024-10-15",
+                "OpenAmount": "15000.00",
+                "Currency": "USD"
+              }
+            ]
+          }
+        },
+        "get_cabppaytenhcdfordspcrcy_for_sap_self": {
+          "description": "Retrieve a single enhanced contract accounting payment record by key.",
+          "input_schema": {
+            "type": "object",
+            "properties": {
+              "BusinessPartner": {
+                "type": "string",
+                "description": "Business partner ID (customer)"
+              },
+              "ContractAccount": {
+                "type": "string",
+                "description": "Contract account number"
+              }
+            },
+            "required": ["BusinessPartner"]
+          },
+          "mock_response": {
+            "BusinessPartner": "C1000",
+            "ContractAccount": "CA-0001",
+            "PaymentTerms": "NT30",
+            "PaymentMethod": "T",
+            "DueDate": "2024-10-15",
+            "OpenAmount": "15000.00",
+            "Currency": "USD"
+          }
+        },
+        "count_cabppaytenhcdfordspcrcy_for_sap_self": {
+          "description": "Count enhanced contract accounting payment records.",
+          "input_schema": {
+            "type": "object",
+            "properties": {
+              "$filter": {
+                "type": "string",
+                "description": "OData filter"
+              }
+            },
+            "required": []
+          },
+          "mock_response": {
+            "value": 1
+          }
+        },
+        "list_cabppaytitemenhcdfordspcrcy_for_sap_self": {
+          "description": "Retrieve a list of enhanced contract accounting payment items for display currency.",
+          "input_schema": {
+            "type": "object",
+            "properties": {
+              "$filter": {
+                "type": "string",
+                "description": "OData filter"
+              },
+              "$select": {
+                "type": "string",
+                "description": "Fields to return"
+              },
+              "$top": {
+                "type": "string",
+                "description": "Maximum records"
+              }
+            },
+            "required": []
+          },
+          "mock_response": {
+            "value": [
+              {
+                "BusinessPartner": "C1000",
+                "ContractAccount": "CA-0001",
+                "DocumentNumber": "DOC-001",
+                "ItemNumber": "001",
+                "DueDate": "2024-10-15",
+                "OpenAmount": "15000.00",
+                "Currency": "USD",
+                "ClearingStatus": "Open"
+              },
+              {
+                "BusinessPartner": "C1000",
+                "ContractAccount": "CA-0001",
+                "DocumentNumber": "DOC-002",
+                "ItemNumber": "001",
+                "DueDate": "2024-09-30",
+                "OpenAmount": "8500.00",
+                "Currency": "USD",
+                "ClearingStatus": "Overdue"
+              }
+            ]
+          }
+        },
+        "get_cabppaytitemenhcdfordspcrcy_for_sap_self": {
+          "description": "Retrieve a single enhanced contract accounting payment item by key.",
+          "input_schema": {
+            "type": "object",
+            "properties": {
+              "BusinessPartner": {
+                "type": "string",
+                "description": "Business partner ID"
+              },
+              "DocumentNumber": {
+                "type": "string",
+                "description": "Document number"
+              },
+              "ItemNumber": {
+                "type": "string",
+                "description": "Item number"
+              }
+            },
+            "required": ["BusinessPartner", "DocumentNumber", "ItemNumber"]
+          },
+          "mock_response": {
+            "BusinessPartner": "C1000",
+            "ContractAccount": "CA-0001",
+            "DocumentNumber": "DOC-001",
+            "ItemNumber": "001",
+            "DueDate": "2024-10-15",
+            "OpenAmount": "15000.00",
+            "Currency": "USD",
+            "ClearingStatus": "Open"
+          }
+        },
+        "count_cabppaytitemenhcdfordspcrcy_for_sap_self": {
+          "description": "Count enhanced contract accounting payment items.",
+          "input_schema": {
+            "type": "object",
+            "properties": {
+              "$filter": {
+                "type": "string",
+                "description": "OData filter"
+              }
+            },
+            "required": []
+          },
+          "mock_response": {
+            "value": 2
+          }
+        },
+        "list_contracctgbuspartnerpayment_for_sap_self": {
+          "description": "Retrieve a list of contract accounting business partner payment records.",
+          "input_schema": {
+            "type": "object",
+            "properties": {
+              "$filter": {
+                "type": "string",
+                "description": "OData filter (e.g., BusinessPartner eq 'C1000')"
+              },
+              "$select": {
+                "type": "string",
+                "description": "Fields to return"
+              },
+              "$top": {
+                "type": "string",
+                "description": "Maximum records"
+              },
+              "$skip": {
+                "type": "string",
+                "description": "Records to skip"
+              }
+            },
+            "required": []
+          },
+          "mock_response": {
+            "value": [
+              {
+                "BusinessPartner": "C1000",
+                "ContractAccount": "CA-0001",
+                "PaymentTerms": "NT30",
+                "DueCalculationBaseDate": "2024-09-15",
+                "CashDiscount1Days": "10",
+                "CashDiscount1Percent": "2.000",
+                "NetPaymentDays": "30",
+                "PaymentMethod": "T",
+                "PaymentBlockingReason": ""
+              }
+            ]
+          }
+        },
+        "get_contracctgbuspartnerpayment_for_sap_self": {
+          "description": "Retrieve a single contract accounting business partner payment record by key.",
+          "input_schema": {
+            "type": "object",
+            "properties": {
+              "BusinessPartner": {
+                "type": "string",
+                "description": "Business partner ID (customer)"
+              },
+              "ContractAccount": {
+                "type": "string",
+                "description": "Contract account number"
+              }
+            },
+            "required": ["BusinessPartner"]
+          },
+          "mock_response": {
+            "BusinessPartner": "C1000",
+            "ContractAccount": "CA-0001",
+            "PaymentTerms": "NT30",
+            "DueCalculationBaseDate": "2024-09-15",
+            "CashDiscount1Days": "10",
+            "CashDiscount1Percent": "2.000",
+            "NetPaymentDays": "30",
+            "PaymentMethod": "T",
+            "PaymentBlockingReason": ""
+          }
+        },
+        "count_contracctgbuspartnerpayment_for_sap_self": {
+          "description": "Count contract accounting business partner payment records.",
+          "input_schema": {
+            "type": "object",
+            "properties": {
+              "$filter": {
+                "type": "string",
+                "description": "OData filter"
+              }
+            },
+            "required": []
+          },
+          "mock_response": {
+            "value": 1
+          }
+        }
+      }
+    }
+  },
+  "metadata": {
+    "version": "1.0.0",
+    "created_for_agent": "customer-billing-review-agent",
+    "mock_mode": true,
+    "deterministic": true,
+    "total_servers": 2,
+    "total_tools": 28,
+    "generated_from": [
+      "assets/sap-s4-ce-billingdocument-0001-mcp-server/mcp-translation/translation.json",
+      "assets/sap-s4-api-cabuspartpayment-0002-mcp-server/mcp-translation/translation.json"
+    ],
+    "generation_date": "2026-11-14"
+  }
+}

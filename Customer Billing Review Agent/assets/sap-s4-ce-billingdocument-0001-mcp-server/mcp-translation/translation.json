@@ -1,0 +1,1459 @@
+{
+  "mcpTranslationVersion": "0.8",
+  "target": {
+    "ordId": "sap.s4:apiResource:CE_BILLINGDOCUMENT_0001:v1",
+    "type": "edmx"
+  },
+  "serverInfo": {
+    "name": "sap.mcp/sap_self",
+    "title": "sap_self",
+    "version": "1.0.0",
+    "description": "MCP server for the sap_self service."
+  },
+  "tools": [
+    {
+      "name": "get_metadata_sap_self",
+      "title": "get_metadata_sap_self",
+      "description": "Get metadata of the OData service with optional filtering to reduce token consumption.\nReturns the metadata in XML format, which can be used to discover available entities and their properties.\nCall this endpoint every time before you call other tools to ensure understanding of the schema.\nBased on the metadata, you can dynamically create an OData request.\n\nUse filtering parameters to get specific metadata sections. Without parameters, this tool returns the complete XML metadata (which might be huge).\nOnly use the specified enum values for the filtering parameters.\n",
+      "odataType": {
+        "metadataRequest": {},
+        "responseHeaders": [
+          {
+            "name": "age"
+          },
+          {
+            "name": "cache-control"
+          },
+          {
+            "name": "expires"
+          },
+          {
+            "name": "last-modified"
+          },
+          {
+            "name": "x-request-id"
+          },
+          {
+            "name": "x-correlation-id"
+          },
+          {
+            "name": "content-type"
+          },
+          {
+            "name": "content-encoding"
+          },
+          {
+            "name": "content-language"
+          },
+          {
+            "name": "content-length"
+          },
+          {
+            "name": "odata-version"
+          },
+          {
+            "name": "etag"
+          },
+          {
+            "name": "vary"
+          },
+          {
+            "name": "sap-messages"
+          }
+        ]
+      },
+      "annotations": {
+        "readOnlyHint": true
+      }
+    },
+    {
+      "name": "batch_for_sap_self",
+      "title": "batch_for_sap_self",
+      "description": "Execute multiple OData operations in a single batch request using the $batch endpoint. This allows you to combine multiple tool calls into one HTTP request, improving efficiency when performing multiple operations.",
+      "odataType": {
+        "batchRequest": {},
+        "responseHeaders": [
+          {
+            "name": "age"
+          },
+          {
+            "name": "cache-control"
+          },
+          {
+            "name": "expires"
+          },
+          {
+            "name": "last-modified"
+          },
+          {
+            "name": "x-request-id"
+          },
+          {
+            "name": "x-correlation-id"
+          },
+          {
+            "name": "content-type"
+          },
+          {
+            "name": "content-encoding"
+          },
+          {
+            "name": "content-language"
+          },
+          {
+            "name": "content-length"
+          },
+          {
+            "name": "odata-version"
+          },
+          {
+            "name": "retry-after"
+          },
+          {
+            "name": "sap-messages"
+          }
+        ]
+      },
+      "annotations": {
+        "readOnlyHint": false
+      }
+    },
+    {
+      "name": "list_billingdocument_for_sap_self",
+      "title": "list_BillingDocument_for_sap_self",
+      "description": "Retrieve a list of entities from the BillingDocument collection in the sap_self service. Supports OData query options for filtering, sorting, ranking ($top), skipping ($skip), expanding related entities, counting, selecting specific properties. Only use attributes in the query options that are specified in the metadata. If the structure of the entity is not known, call get_metadata_sap_self tool first to get the metadata.",
+      "odataType": {
+        "entitySet": {
+          "name": "BillingDocument",
+          "crudOperation": "read",
+          "parameters": [
+            {
+              "name": "filter"
+            },
+            {
+              "name": "select"
+            },
+            {
+              "name": "orderby"
+            },
+            {
+              "name": "top"
+            },
+            {
+              "name": "skip"
+            },
+            {
+              "name": "expand"
+            },
+            {
+              "name": "count"
+            }
+          ]
+        },
+        "responseHeaders": [
+          {
+            "name": "age"
+          },
+          {
+            "name": "cache-control"
+          },
+          {
+            "name": "expires"
+          },
+          {
+            "name": "last-modified"
+          },
+          {
+            "name": "x-request-id"
+          },
+          {
+            "name": "x-correlation-id"
+          },
+          {
+            "name": "content-type"
+          },
+          {
+            "name": "content-encoding"
+          },
+          {
+            "name": "content-language"
+          },
+          {
+            "name": "content-length"
+          },
+          {
+            "name": "odata-version"
+          },
+          {
+            "name": "etag"
+          },
+          {
+            "name": "preference-applied"
+          },
+          {
+            "name": "vary"
+          },
+          {
+            "name": "retry-after"
+          },
+          {
+            "name": "asyncresult"
+          },
+          {
+            "name": "odata-error"
+          },
+          {
+            "name": "sap-messages"
+          }
+        ]
+      },
+      "annotations": {
+        "readOnlyHint": true
+      }
+    },
+    {
+      "name": "get_billingdocument_for_sap_self",
+      "title": "get_BillingDocument_for_sap_self",
+      "description": "Retrieve a single entity by its key from the BillingDocument collection in the sap_self service. Provide the key property value(s) to identify the specific entity to retrieve. Supports OData query options for selecting specific properties ($select), expanding related entities ($expand). If the structure of the entity is not known, call get_metadata_sap_self tool first to get the metadata.",
+      "odataType": {
+        "entitySet": {
+          "name": "BillingDocument",
+          "crudOperation": "readByKey",
+          "parameters": [
+            {
+              "name": "BillingDocument",
+              "newParameterName": "billingdocument"
+            },
+            {
+              "name": "select"
+            },
+            {
+              "name": "expand"
+            }
+          ]
+        },
+        "responseHeaders": [
+          {
+            "name": "age"
+          },
+          {
+            "name": "cache-control"
+          },
+          {
+            "name": "expires"
+          },
+          {
+            "name": "last-modified"
+          },
+          {
+            "name": "x-request-id"
+          },
+          {
+            "name": "x-correlation-id"
+          },
+          {
+            "name": "content-type"
+          },
+          {
+            "name": "content-encoding"
+          },
+          {
+            "name": "content-language"
+          },
+          {
+            "name": "content-length"
+          },
+          {
+            "name": "odata-version"
+          },
+          {
+            "name": "etag"
+          },
+          {
+            "name": "preference-applied"
+          },
+          {
+            "name": "vary"
+          },
+          {
+            "name": "retry-after"
+          },
+          {
+            "name": "asyncresult"
+          },
+          {
+            "name": "odata-error"
+          },
+          {
+            "name": "sap-messages"
+          }
+        ]
+      },
+      "annotations": {
+        "readOnlyHint": true
+      }
+    },
+    {
+      "name": "count_billingdocument_for_sap_self",
+      "title": "count_BillingDocument_for_sap_self",
+      "description": "Get the total count of entities in the BillingDocument collection in the sap_self service. Supports OData $filter to count only entities matching specific criteria. Use this when you need to determine the total number of entities without retrieving the actual data. If you need to understand the available filter properties, call get_metadata_sap_self tool first to get the metadata.",
+      "odataType": {
+        "entitySet": {
+          "name": "BillingDocument",
+          "crudOperation": "count",
+          "parameters": [
+            {
+              "name": "filter"
+            }
+          ]
+        },
+        "responseHeaders": [
+          {
+            "name": "age"
+          },
+          {
+            "name": "cache-control"
+          },
+          {
+            "name": "expires"
+          },
+          {
+            "name": "last-modified"
+          },
+          {
+            "name": "x-request-id"
+          },
+          {
+            "name": "x-correlation-id"
+          },
+          {
+            "name": "content-type"
+          },
+          {
+            "name": "content-encoding"
+          },
+          {
+            "name": "content-language"
+          },
+          {
+            "name": "content-length"
+          },
+          {
+            "name": "odata-version"
+          },
+          {
+            "name": "sap-messages"
+          }
+        ]
+      },
+      "annotations": {
+        "readOnlyHint": true
+      }
+    },
+    {
+      "name": "list_billingdocumentitem_for_sap_self",
+      "title": "list_BillingDocumentItem_for_sap_self",
+      "description": "Retrieve a list of entities from the BillingDocumentItem collection in the sap_self service. Supports OData query options for filtering, sorting, ranking ($top), skipping ($skip), expanding related entities, counting, selecting specific properties. Only use attributes in the query options that are specified in the metadata. If the structure of the entity is not known, call get_metadata_sap_self tool first to get the metadata.",
+      "odataType": {
+        "entitySet": {
+          "name": "BillingDocumentItem",
+          "crudOperation": "read",
+          "parameters": [
+            {
+              "name": "filter"
+            },
+            {
+              "name": "select"
+            },
+            {
+              "name": "orderby"
+            },
+            {
+              "name": "top"
+            },
+            {
+              "name": "skip"
+            },
+            {
+              "name": "expand"
+            },
+            {
+              "name": "count"
+            }
+          ]
+        },
+        "responseHeaders": [
+          {
+            "name": "age"
+          },
+          {
+            "name": "cache-control"
+          },
+          {
+            "name": "expires"
+          },
+          {
+            "name": "last-modified"
+          },
+          {
+            "name": "x-request-id"
+          },
+          {
+            "name": "x-correlation-id"
+          },
+          {
+            "name": "content-type"
+          },
+          {
+            "name": "content-encoding"
+          },
+          {
+            "name": "content-language"
+          },
+          {
+            "name": "content-length"
+          },
+          {
+            "name": "odata-version"
+          },
+          {
+            "name": "etag"
+          },
+          {
+            "name": "preference-applied"
+          },
+          {
+            "name": "vary"
+          },
+          {
+            "name": "retry-after"
+          },
+          {
+            "name": "asyncresult"
+          },
+          {
+            "name": "odata-error"
+          },
+          {
+            "name": "sap-messages"
+          }
+        ]
+      },
+      "annotations": {
+        "readOnlyHint": true
+      }
+    },
+    {
+      "name": "get_billingdocumentitem_for_sap_self",
+      "title": "get_BillingDocumentItem_for_sap_self",
+      "description": "Retrieve a single entity by its key from the BillingDocumentItem collection in the sap_self service. Provide the key property value(s) to identify the specific entity to retrieve. Supports OData query options for selecting specific properties ($select), expanding related entities ($expand). If the structure of the entity is not known, call get_metadata_sap_self tool first to get the metadata.",
+      "odataType": {
+        "entitySet": {
+          "name": "BillingDocumentItem",
+          "crudOperation": "readByKey",
+          "parameters": [
+            {
+              "name": "BillingDocument",
+              "newParameterName": "billingdocument"
+            },
+            {
+              "name": "BillingDocumentItem",
+              "newParameterName": "billingdocumentitem"
+            },
+            {
+              "name": "select"
+            },
+            {
+              "name": "expand"
+            }
+          ]
+        },
+        "responseHeaders": [
+          {
+            "name": "age"
+          },
+          {
+            "name": "cache-control"
+          },
+          {
+            "name": "expires"
+          },
+          {
+            "name": "last-modified"
+          },
+          {
+            "name": "x-request-id"
+          },
+          {
+            "name": "x-correlation-id"
+          },
+          {
+            "name": "content-type"
+          },
+          {
+            "name": "content-encoding"
+          },
+          {
+            "name": "content-language"
+          },
+          {
+            "name": "content-length"
+          },
+          {
+            "name": "odata-version"
+          },
+          {
+            "name": "etag"
+          },
+          {
+            "name": "preference-applied"
+          },
+          {
+            "name": "vary"
+          },
+          {
+            "name": "retry-after"
+          },
+          {
+            "name": "asyncresult"
+          },
+          {
+            "name": "odata-error"
+          },
+          {
+            "name": "sap-messages"
+          }
+        ]
+      },
+      "annotations": {
+        "readOnlyHint": true
+      }
+    },
+    {
+      "name": "count_billingdocumentitem_for_sap_self",
+      "title": "count_BillingDocumentItem_for_sap_self",
+      "description": "Get the total count of entities in the BillingDocumentItem collection in the sap_self service. Supports OData $filter to count only entities matching specific criteria. Use this when you need to determine the total number of entities without retrieving the actual data. If you need to understand the available filter properties, call get_metadata_sap_self tool first to get the metadata.",
+      "odataType": {
+        "entitySet": {
+          "name": "BillingDocumentItem",
+          "crudOperation": "count",
+          "parameters": [
+            {
+              "name": "filter"
+            }
+          ]
+        },
+        "responseHeaders": [
+          {
+            "name": "age"
+          },
+          {
+            "name": "cache-control"
+          },
+          {
+            "name": "expires"
+          },
+          {
+            "name": "last-modified"
+          },
+          {
+            "name": "x-request-id"
+          },
+          {
+            "name": "x-correlation-id"
+          },
+          {
+            "name": "content-type"
+          },
+          {
+            "name": "content-encoding"
+          },
+          {
+            "name": "content-language"
+          },
+          {
+            "name": "content-length"
+          },
+          {
+            "name": "odata-version"
+          },
+          {
+            "name": "sap-messages"
+          }
+        ]
+      },
+      "annotations": {
+        "readOnlyHint": true
+      }
+    },
+    {
+      "name": "list_billingdocument__item_for_sap_self",
+      "title": "list_BillingDocument__Item_for_sap_self",
+      "description": "Retrieve a collection of contained entities from the _Item contained entity set (accessed via navigation path: BillingDocument → _Item) in the sap_self service. Supports OData query options for filtering, sorting, and pagination.",
+      "odataType": {
+        "entitySet": {
+          "name": "BillingDocument",
+          "navigationProperty": {
+            "name": "_Item",
+            "crudOperation": "read",
+            "parameters": [
+              {
+                "name": "filter"
+              },
+              {
+                "name": "select"
+              },
+              {
+                "name": "orderby"
+              },
+              {
+                "name": "top"
+              },
+              {
+                "name": "skip"
+              },
+              {
+                "name": "expand"
+              },
+              {
+                "name": "count"
+              }
+            ]
+          },
+          "parameters": [
+            {
+              "name": "BillingDocument",
+              "newParameterName": "billingdocument_billingdocument"
+            }
+          ]
+        },
+        "responseHeaders": [
+          {
+            "name": "age"
+          },
+          {
+            "name": "cache-control"
+          },
+          {
+            "name": "expires"
+          },
+          {
+            "name": "last-modified"
+          },
+          {
+            "name": "x-request-id"
+          },
+          {
+            "name": "x-correlation-id"
+          },
+          {
+            "name": "content-type"
+          },
+          {
+            "name": "content-encoding"
+          },
+          {
+            "name": "content-language"
+          },
+          {
+            "name": "content-length"
+          },
+          {
+            "name": "odata-version"
+          },
+          {
+            "name": "etag"
+          },
+          {
+            "name": "preference-applied"
+          },
+          {
+            "name": "vary"
+          },
+          {
+            "name": "retry-after"
+          },
+          {
+            "name": "asyncresult"
+          },
+          {
+            "name": "odata-error"
+          },
+          {
+            "name": "sap-messages"
+          }
+        ]
+      },
+      "annotations": {
+        "readOnlyHint": true
+      }
+    },
+    {
+      "name": "get_billingdocument__item_for_sap_self",
+      "title": "get_BillingDocument__Item_for_sap_self",
+      "description": "Retrieve a single contained entity by its key from the _Item contained entity set in the sap_self service. Provide all ancestor and entity key values to identify the specific entity.",
+      "odataType": {
+        "entitySet": {
+          "name": "BillingDocument",
+          "navigationProperty": {
+            "name": "_Item",
+            "crudOperation": "readByKey",
+            "parameters": [
+              {
+                "name": "BillingDocument",
+                "newParameterName": "item_billingdocument"
+              },
+              {
+                "name": "BillingDocumentItem",
+                "newParameterName": "item_billingdocumentitem"
+              },
+              {
+                "name": "select"
+              },
+              {
+                "name": "expand"
+              }
+            ]
+          },
+          "parameters": [
+            {
+              "name": "BillingDocument",
+              "newParameterName": "billingdocument_billingdocument"
+            }
+          ]
+        },
+        "responseHeaders": [
+          {
+            "name": "age"
+          },
+          {
+            "name": "cache-control"
+          },
+          {
+            "name": "expires"
+          },
+          {
+            "name": "last-modified"
+          },
+          {
+            "name": "x-request-id"
+          },
+          {
+            "name": "x-correlation-id"
+          },
+          {
+            "name": "content-type"
+          },
+          {
+            "name": "content-encoding"
+          },
+          {
+            "name": "content-language"
+          },
+          {
+            "name": "content-length"
+          },
+          {
+            "name": "odata-version"
+          },
+          {
+            "name": "etag"
+          },
+          {
+            "name": "preference-applied"
+          },
+          {
+            "name": "vary"
+          },
+          {
+            "name": "retry-after"
+          },
+          {
+            "name": "asyncresult"
+          },
+          {
+            "name": "odata-error"
+          },
+          {
+            "name": "sap-messages"
+          }
+        ]
+      },
+      "annotations": {
+        "readOnlyHint": true
+      }
+    },
+    {
+      "name": "count_billingdocument__item_for_sap_self",
+      "title": "count_BillingDocument__Item_for_sap_self",
+      "description": "Count the number of entities in the contained _Item entity set in the sap_self service. Optionally use $filter to count only entities matching specific criteria.",
+      "odataType": {
+        "entitySet": {
+          "name": "BillingDocument",
+          "navigationProperty": {
+            "name": "_Item",
+            "crudOperation": "count",
+            "parameters": []
+          },
+          "parameters": [
+            {
+              "name": "BillingDocument",
+              "newParameterName": "billingdocument_billingdocument"
+            },
+            {
+              "name": "filter"
+            }
+          ]
+        },
+        "responseHeaders": [
+          {
+            "name": "age"
+          },
+          {
+            "name": "cache-control"
+          },
+          {
+            "name": "expires"
+          },
+          {
+            "name": "last-modified"
+          },
+          {
+            "name": "x-request-id"
+          },
+          {
+            "name": "x-correlation-id"
+          },
+          {
+            "name": "content-type"
+          },
+          {
+            "name": "content-encoding"
+          },
+          {
+            "name": "content-language"
+          },
+          {
+            "name": "content-length"
+          },
+          {
+            "name": "odata-version"
+          },
+          {
+            "name": "sap-messages"
+          }
+        ]
+      },
+      "annotations": {
+        "readOnlyHint": true
+      }
+    },
+    {
+      "name": "list_billingdocument__partner_for_sap_self",
+      "title": "list_BillingDocument__Partner_for_sap_self",
+      "description": "Retrieve a collection of contained entities from the _Partner contained entity set (accessed via navigation path: BillingDocument → _Partner) in the sap_self service. Supports OData query options for filtering, sorting, and pagination.",
+      "odataType": {
+        "entitySet": {
+          "name": "BillingDocument",
+          "navigationProperty": {
+            "name": "_Partner",
+            "crudOperation": "read",
+            "parameters": [
+              {
+                "name": "filter"
+              },
+              {
+                "name": "select"
+              },
+              {
+                "name": "orderby"
+              },
+              {
+                "name": "top"
+              },
+              {
+                "name": "skip"
+              },
+              {
+                "name": "expand"
+              },
+              {
+                "name": "count"
+              }
+            ]
+          },
+          "parameters": [
+            {
+              "name": "BillingDocument",
+              "newParameterName": "billingdocument_billingdocument"
+            }
+          ]
+        },
+        "responseHeaders": [
+          {
+            "name": "age"
+          },
+          {
+            "name": "cache-control"
+          },
+          {
+            "name": "expires"
+          },
+          {
+            "name": "last-modified"
+          },
+          {
+            "name": "x-request-id"
+          },
+          {
+            "name": "x-correlation-id"
+          },
+          {
+            "name": "content-type"
+          },
+          {
+            "name": "content-encoding"
+          },
+          {
+            "name": "content-language"
+          },
+          {
+            "name": "content-length"
+          },
+          {
+            "name": "odata-version"
+          },
+          {
+            "name": "etag"
+          },
+          {
+            "name": "preference-applied"
+          },
+          {
+            "name": "vary"
+          },
+          {
+            "name": "retry-after"
+          },
+          {
+            "name": "asyncresult"
+          },
+          {
+            "name": "odata-error"
+          },
+          {
+            "name": "sap-messages"
+          }
+        ]
+      },
+      "annotations": {
+        "readOnlyHint": true
+      }
+    },
+    {
+      "name": "get_billingdocument__partner_for_sap_self",
+      "title": "get_BillingDocument__Partner_for_sap_self",
+      "description": "Retrieve a single contained entity by its key from the _Partner contained entity set in the sap_self service. Provide all ancestor and entity key values to identify the specific entity.",
+      "odataType": {
+        "entitySet": {
+          "name": "BillingDocument",
+          "navigationProperty": {
+            "name": "_Partner",
+            "crudOperation": "readByKey",
+            "parameters": [
+              {
+                "name": "BillingDocument",
+                "newParameterName": "partner_billingdocument"
+              },
+              {
+                "name": "PartnerFunction",
+                "newParameterName": "partner_partnerfunction"
+              },
+              {
+                "name": "select"
+              },
+              {
+                "name": "expand"
+              }
+            ]
+          },
+          "parameters": [
+            {
+              "name": "BillingDocument",
+              "newParameterName": "billingdocument_billingdocument"
+            }
+          ]
+        },
+        "responseHeaders": [
+          {
+            "name": "age"
+          },
+          {
+            "name": "cache-control"
+          },
+          {
+            "name": "expires"
+          },
+          {
+            "name": "last-modified"
+          },
+          {
+            "name": "x-request-id"
+          },
+          {
+            "name": "x-correlation-id"
+          },
+          {
+            "name": "content-type"
+          },
+          {
+            "name": "content-encoding"
+          },
+          {
+            "name": "content-language"
+          },
+          {
+            "name": "content-length"
+          },
+          {
+            "name": "odata-version"
+          },
+          {
+            "name": "etag"
+          },
+          {
+            "name": "preference-applied"
+          },
+          {
+            "name": "vary"
+          },
+          {
+            "name": "retry-after"
+          },
+          {
+            "name": "asyncresult"
+          },
+          {
+            "name": "odata-error"
+          },
+          {
+            "name": "sap-messages"
+          }
+        ]
+      },
+      "annotations": {
+        "readOnlyHint": true
+      }
+    },
+    {
+      "name": "list_billingdocument__text_for_sap_self",
+      "title": "list_BillingDocument__Text_for_sap_self",
+      "description": "Retrieve a collection of contained entities from the _Text contained entity set (accessed via navigation path: BillingDocument → _Text) in the sap_self service. Supports OData query options for filtering, sorting, and pagination.",
+      "odataType": {
+        "entitySet": {
+          "name": "BillingDocument",
+          "navigationProperty": {
+            "name": "_Text",
+            "crudOperation": "read",
+            "parameters": [
+              {
+                "name": "filter"
+              },
+              {
+                "name": "select"
+              },
+              {
+                "name": "orderby"
+              },
+              {
+                "name": "top"
+              },
+              {
+                "name": "skip"
+              },
+              {
+                "name": "expand"
+              },
+              {
+                "name": "count"
+              }
+            ]
+          },
+          "parameters": [
+            {
+              "name": "BillingDocument",
+              "newParameterName": "billingdocument_billingdocument"
+            }
+          ]
+        },
+        "responseHeaders": [
+          {
+            "name": "age"
+          },
+          {
+            "name": "cache-control"
+          },
+          {
+            "name": "expires"
+          },
+          {
+            "name": "last-modified"
+          },
+          {
+            "name": "x-request-id"
+          },
+          {
+            "name": "x-correlation-id"
+          },
+          {
+            "name": "content-type"
+          },
+          {
+            "name": "content-encoding"
+          },
+          {
+            "name": "content-language"
+          },
+          {
+            "name": "content-length"
+          },
+          {
+            "name": "odata-version"
+          },
+          {
+            "name": "etag"
+          },
+          {
+            "name": "preference-applied"
+          },
+          {
+            "name": "vary"
+          },
+          {
+            "name": "retry-after"
+          },
+          {
+            "name": "asyncresult"
+          },
+          {
+            "name": "odata-error"
+          },
+          {
+            "name": "sap-messages"
+          }
+        ]
+      },
+      "annotations": {
+        "readOnlyHint": true
+      }
+    },
+    {
+      "name": "get_billingdocument__text_for_sap_self",
+      "title": "get_BillingDocument__Text_for_sap_self",
+      "description": "Retrieve a single contained entity by its key from the _Text contained entity set in the sap_self service. Provide all ancestor and entity key values to identify the specific entity.",
+      "odataType": {
+        "entitySet": {
+          "name": "BillingDocument",
+          "navigationProperty": {
+            "name": "_Text",
+            "crudOperation": "readByKey",
+            "parameters": [
+              {
+                "name": "BillingDocument",
+                "newParameterName": "text_billingdocument"
+              },
+              {
+                "name": "Language",
+                "newParameterName": "text_language"
+              },
+              {
+                "name": "LongTextID",
+                "newParameterName": "text_longtextid"
+              },
+              {
+                "name": "select"
+              },
+              {
+                "name": "expand"
+              }
+            ]
+          },
+          "parameters": [
+            {
+              "name": "BillingDocument",
+              "newParameterName": "billingdocument_billingdocument"
+            }
+          ]
+        },
+        "responseHeaders": [
+          {
+            "name": "age"
+          },
+          {
+            "name": "cache-control"
+          },
+          {
+            "name": "expires"
+          },
+          {
+            "name": "last-modified"
+          },
+          {
+            "name": "x-request-id"
+          },
+          {
+            "name": "x-correlation-id"
+          },
+          {
+            "name": "content-type"
+          },
+          {
+            "name": "content-encoding"
+          },
+          {
+            "name": "content-language"
+          },
+          {
+            "name": "content-length"
+          },
+          {
+            "name": "odata-version"
+          },
+          {
+            "name": "etag"
+          },
+          {
+            "name": "preference-applied"
+          },
+          {
+            "name": "vary"
+          },
+          {
+            "name": "retry-after"
+          },
+          {
+            "name": "asyncresult"
+          },
+          {
+            "name": "odata-error"
+          },
+          {
+            "name": "sap-messages"
+          }
+        ]
+      },
+      "annotations": {
+        "readOnlyHint": true
+      }
+    },
+    {
+      "name": "list_billingdocumentitem__itempartner_for_sap_self",
+      "title": "list_BillingDocumentItem__ItemPartner_for_sap_self",
+      "description": "Retrieve a collection of contained entities from the _ItemPartner contained entity set (accessed via navigation path: BillingDocumentItem → _ItemPartner) in the sap_self service. Supports OData query options for filtering, sorting, and pagination.",
+      "odataType": {
+        "entitySet": {
+          "name": "BillingDocumentItem",
+          "navigationProperty": {
+            "name": "_ItemPartner",
+            "crudOperation": "read",
+            "parameters": [
+              {
+                "name": "filter"
+              },
+              {
+                "name": "select"
+              },
+              {
+                "name": "orderby"
+              },
+              {
+                "name": "top"
+              },
+              {
+                "name": "skip"
+              },
+              {
+                "name": "expand"
+              },
+              {
+                "name": "count"
+              }
+            ]
+          },
+          "parameters": [
+            {
+              "name": "BillingDocument",
+              "newParameterName": "billingdocumentitem_billingdocument"
+            },
+            {
+              "name": "BillingDocumentItem",
+              "newParameterName": "billingdocumentitem_billingdocumentitem"
+            }
+          ]
+        },
+        "responseHeaders": [
+          {
+            "name": "age"
+          },
+          {
+            "name": "cache-control"
+          },
+          {
+            "name": "expires"
+          },
+          {
+            "name": "last-modified"
+          },
+          {
+            "name": "x-request-id"
+          },
+          {
+            "name": "x-correlation-id"
+          },
+          {
+            "name": "content-type"
+          },
+          {
+            "name": "content-encoding"
+          },
+          {
+            "name": "content-language"
+          },
+          {
+            "name": "content-length"
+          },
+          {
+            "name": "odata-version"
+          },
+          {
+            "name": "etag"
+          },
+          {
+            "name": "preference-applied"
+          },
+          {
+            "name": "vary"
+          },
+          {
+            "name": "retry-after"
+          },
+          {
+            "name": "asyncresult"
+          },
+          {
+            "name": "odata-error"
+          },
+          {
+            "name": "sap-messages"
+          }
+        ]
+      },
+      "annotations": {
+        "readOnlyHint": true
+      }
+    },
+    {
+      "name": "get_billingdocumentitem__itempartner_for_sap_self",
+      "title": "get_BillingDocumentItem__ItemPartner_for_sap_self",
+      "description": "Retrieve a single contained entity by its key from the _ItemPartner contained entity set in the sap_self service. Provide all ancestor and entity key values to identify the specific entity.",
+      "odataType": {
+        "entitySet": {
+          "name": "BillingDocumentItem",
+          "navigationProperty": {
+            "name": "_ItemPartner",
+            "crudOperation": "readByKey",
+            "parameters": [
+              {
+                "name": "BillingDocument",
+                "newParameterName": "itempartner_billingdocument"
+              },
+              {
+                "name": "BillingDocumentItem",
+                "newParameterName": "itempartner_billingdocumentitem"
+              },
+              {
+                "name": "PartnerFunction",
+                "newParameterName": "itempartner_partnerfunction"
+              },
+              {
+                "name": "select"
+              },
+              {
+                "name": "expand"
+              }
+            ]
+          },
+          "parameters": [
+            {
+              "name": "BillingDocument",
+              "newParameterName": "billingdocumentitem_billingdocument"
+            },
+            {
+              "name": "BillingDocumentItem",
+              "newParameterName": "billingdocumentitem_billingdocumentitem"
+            }
+          ]
+        },
+        "responseHeaders": [
+          {
+            "name": "age"
+          },
+          {
+            "name": "cache-control"
+          },
+          {
+            "name": "expires"
+          },
+          {
+            "name": "last-modified"
+          },
+          {
+            "name": "x-request-id"
+          },
+          {
+            "name": "x-correlation-id"
+          },
+          {
+            "name": "content-type"
+          },
+          {
+            "name": "content-encoding"
+          },
+          {
+            "name": "content-language"
+          },
+          {
+            "name": "content-length"
+          },
+          {
+            "name": "odata-version"
+          },
+          {
+            "name": "etag"
+          },
+          {
+            "name": "preference-applied"
+          },
+          {
+            "name": "vary"
+          },
+          {
+            "name": "retry-after"
+          },
+          {
+            "name": "asyncresult"
+          },
+          {
+            "name": "odata-error"
+          },
+          {
+            "name": "sap-messages"
+          }
+        ]
+      },
+      "annotations": {
+        "readOnlyHint": true
+      }
+    }
+  ]
+}
