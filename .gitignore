@@ -1,4 +1,16 @@
-Customer Billing Review Agent/.build
+**/*.log
+
 **/.coverage
+**/coverage/
 **/coverage.json
 **/test_report.json
+
+**/*.tmp
+**/*.bak
+**/*.swp
+**/*.swo
+**/*~
+
+**/.DS_Store
+**/Thumbs.db
+**/desktop.ini
