@@ -1,0 +1,10 @@
+apiVersion: solution.sap/v1
+kind: Solution
+
+metadata:
+  name: financial-closing-escalation-aac9e
+  version: 1.0.0
+  description: Agent extension for the SAP Financial Closing Assistant that introduces company-specific escalation rules to identify and prioritize critical closing issues for Stonebridge Equipment Group.
+
+assets:
+  - ref: ./assets/financial-closing-escalation-agent-extension/asset.yaml
